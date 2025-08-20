@@ -1,0 +1,71 @@
+name: Publish Transport Data
+
+on:
+  workflow_dispatch:  # Ручной запуск
+  schedule:
+    - cron: '0 15 * * 1-5'  # 18:00 МСК, рабочие дни (пн-пт)
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: parsers/brestgortrans-by
+    
+    steps:
+    - name: Checkout parsers repository
+      uses: actions/checkout@v4
+      with:
+        path: parsers
+        repository: ${{ github.repository_owner }}/parsers
+    
+    - name: Checkout data repository
+      uses: actions/checkout@v4
+      with:
+        path: transport-data
+        repository: ${{ github.repository_owner }}/transport_in_Brest-data
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        cd parsers/brestgortrans-by
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run parser and generate data
+      run: |
+        cd parsers/brestgortrans-by
+        python main.py --force --convert
+    
+    - name: Copy generated data
+      run: |
+        cp -r parsers/brestgortrans-by/data/json/* transport-data/data/
+        cp parsers/brestgortrans-by/data/metadata.json transport-data/data/meta.json
+        cp create_timetable.py transport-data/
+    
+    - name: Create timetable.json
+      run: |
+        cd transport-data
+        python create_timetable.py
+    
+    - name: Commit and push changes
+      run: |
+        cd transport-data
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add data/
+        git commit -m "Update transport data $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+        git push origin main
+    
+    - name: Show published data
+      run: |
+        cd transport-data
+        echo "=== Published files ==="
+        ls -la data/
+        echo "=== Timetable metadata ==="
+        python -c "import json; data=json.load(open('data/timetable.json')); print(f'Version: {data[\"metadata\"][\"version\"]}'); print(f'Generated: {data[\"metadata\"][\"generated_at\"]}'); print(f'Transport types: {list(data[\"data\"].keys())}')"

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "transport_type": "example",
+    "converted_at": "2025-08-20T00:00:00",
+    "source_file": "example",
+    "total_routes": 2,
+    "total_stops": 4,
+    "total_times": 8
+  },
+  "routes": [
+    {
+      "route_number": "1",
+      "direction": "forward",
+      "day_type": "workdays",
+      "stops": [
+        {
+          "name": "Остановка 1",
+          "coordinates": {
+            "lat": 52.0976,
+            "lng": 23.6877
+          },
+          "times": ["06:00", "06:30", "07:00"]
+        },
+        {
+          "name": "Остановка 2", 
+          "coordinates": {
+            "lat": 52.1000,
+            "lng": 23.6900
+          },
+          "times": ["06:05", "06:35", "07:05"]
+        }
+      ]
+    },
+    {
+      "route_number": "2",
+      "direction": "backward",
+      "day_type": "weekends",
+      "stops": [
+        {
+          "name": "Остановка 3",
+          "coordinates": {
+            "lat": 52.0950,
+            "lng": 23.6850
+          },
+          "times": ["08:00", "08:30", "09:00"]
+        },
+        {
+          "name": "Остановка 4",
+          "coordinates": {
+            "lat": 52.0920,
+            "lng": 23.6820
+          },
+          "times": ["08:05", "08:35", "09:05"]
+        }
+      ]
+    }
+  ]
+}
+

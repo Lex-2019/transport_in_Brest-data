@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-08-16T01:16:54.490472",
+  "transport_types": {
+    "buses": {
+      "last_update": null,
+      "files": [],
+      "total_files": 0
+    },
+    "trolleybuses": {
+      "last_update": null,
+      "files": [],
+      "total_files": 0
+    },
+    "minibuses": {
+      "last_update": null,
+      "files": [],
+      "total_files": 0
+    }
+  },
+  "statistics": {
+    "total_files": 0,
+    "total_size_bytes": 0,
+    "last_parser_run": null
+  }
+}
