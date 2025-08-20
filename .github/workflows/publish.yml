@@ -16,7 +16,7 @@ jobs:
     - name: Checkout parsers repository
       uses: actions/checkout@v4
       with:
-        path: parsers
+        path: .
         repository: Lex-2019/parsers
     
     - name: Checkout data repository
@@ -33,13 +33,13 @@ jobs:
     
     - name: Install dependencies
       run: |
-        cd parsers/brestgortrans-by
+        cd brestgortrans-by
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
     - name: Run parser and generate data
       run: |
-        cd parsers/brestgortrans-by
+        cd brestgortrans-by
         python main.py --force --convert
     
     - name: Copy generated data
