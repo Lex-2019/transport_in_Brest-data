@@ -13,21 +13,14 @@ jobs:
     - name: Checkout data repository
       uses: actions/checkout@v4
       
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-        
-    - name: Create timetable.json
-      run: |
-        python create_timetable.py
-        
     - name: Show published data
       run: |
         echo "=== Published files ==="
         ls -la data/
+        echo "=== File sizes ==="
+        du -h data/*.json
         echo "=== Timetable metadata ==="
-        python -c "import json; data=json.load(open('data/timetable.json')); print(f'Version: {data[\"metadata\"][\"version\"]}'); print(f'Generated: {data[\"metadata\"][\"generated_at\"]}'); print(f'Transport types: {list(data[\"data\"].keys())}')"
+        python -c "import json; data=json.load(open('data/timetable.json')); print(f'Version: {data[\"metadata\"][\"version\"]}'); print(f'Generated: {data[\"metadata\"][\"generated_at\"]}'); print(f'Total routes: {data[\"metadata\"][\"total_routes\"]}'); print(f'Total stops: {data[\"metadata\"][\"total_stops\"]}')"
         
     - name: Commit and push changes
       run: |
