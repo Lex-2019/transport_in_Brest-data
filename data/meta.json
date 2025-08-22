@@ -1,16 +1,36 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-08-16T01:16:54.490472",
+  "last_updated": "2025-08-22T23:50:32.379828",
   "transport_types": {
     "buses": {
-      "last_update": null,
-      "files": [],
-      "total_files": 0
+      "last_update": "2025-08-22T23:50:32.379654",
+      "files": [
+        {
+          "filename": "Расписание_город_с_2025.08.05.xls",
+          "url": "https://brestgortrans.by/uploads/Rasp/bus/Расписание_город_с_2025.08.05.xls",
+          "date": "2025-08-05",
+          "size_bytes": 2968064,
+          "hash": "555d3afb8aeace3e4255d13986fe830a",
+          "downloaded_at": "2025-08-22T23:50:32.379434",
+          "local_path": "D:\\projects\\personal\\parsers\\brestgortrans-by\\data\\schedules\\buses\\Расписание_город_с_2025.08.05.xls"
+        }
+      ],
+      "total_files": 1
     },
     "trolleybuses": {
-      "last_update": null,
-      "files": [],
-      "total_files": 0
+      "last_update": "2025-08-22T23:50:32.379820",
+      "files": [
+        {
+          "filename": "Расписание_Т_город_с_05.08.2025.xls",
+          "url": "https://brestgortrans.by/uploads/Rasp/troll/Расписание_Т_город_с_05.08.2025.xls",
+          "date": "2025-08-05",
+          "size_bytes": 908288,
+          "hash": "6426e66338b450d721adc969facc27cb",
+          "downloaded_at": "2025-08-22T23:50:32.379671",
+          "local_path": "D:\\projects\\personal\\parsers\\brestgortrans-by\\data\\schedules\\trolleybuses\\Расписание_Т_город_с_05.08.2025.xls"
+        }
+      ],
+      "total_files": 1
     },
     "minibuses": {
       "last_update": null,
@@ -19,8 +39,8 @@
     }
   },
   "statistics": {
-    "total_files": 0,
-    "total_size_bytes": 0,
-    "last_parser_run": null
+    "total_files": 2,
+    "total_size_bytes": 3876352,
+    "last_parser_run": "2025-08-22T23:50:32.379827"
   }
 }

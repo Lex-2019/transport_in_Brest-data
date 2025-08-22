@@ -126,3 +126,4 @@ if __name__ == "__main__":
     print("\n🎉 Все файлы созданы успешно!")
     print("📱 Теперь можно использовать в мобильном приложении:")
     print("   https://cdn.jsdelivr.net/gh/USERNAME/transport_in_Brest-data@main/data/timetable.json")
+
